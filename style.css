@@ -163,3 +163,26 @@ footer.bg-brown {
     object-fit: contain;
     display: block;
 }
+
+/* Lightbox Modal Styles */
+.product-image {
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+.product-image:hover {
+    transform: scale(1.05);
+    filter: brightness(0.9);
+}
+
+#lightboxModal .modal-dialog {
+    max-width: 800px;
+}
+
+#lightboxModal .modal-body {
+    padding: 30px;
+}
+
+#lightboxImage {
+    max-height: 80vh;
+    object-fit: contain;
+}

@@ -57,7 +57,7 @@
                 <!-- Produit 1 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="card h-100 shadow-sm">
-                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=b3df7c2c3e4b0a5d1c6e2e2dd6b6f1f2" class="card-img-top" alt="Café Touba 250g">
+                        <img src="250g.jpeg" class="card-img-top product-image" alt="Café Touba 250g" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-image="250g.jpeg" data-title="cafe TUUBA Majalis — 250g">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">cafe TUUBA Majalis — 250g</h5>
                             <p class="card-text text-muted">Café de qualité supérieure, naturelle et parfumée.</p>
@@ -72,7 +72,7 @@
                 <!-- Produit 2 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="card h-100 shadow-sm">
-                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2d1f3b8c9f3c9b7a8d7a8d9c3b3a1a2b" class="card-img-top" alt="Café Touba 500g">
+                        <img src="500g.jpeg" class="card-img-top product-image" alt="Café Touba 500g" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-image="500g.jpeg" data-title="cafe TUUBA Majalis — 500g">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">cafe TUUBA Majalis — 500g</h5>
                             <p class="card-text text-muted">Format familial, même goût traditionnel — idéal pour les amateurs.</p>
@@ -85,15 +85,15 @@
                 </div>
 
                 <!-- Produit 3 -->
-                <div class="col-md-6 col-lg-4">
+               <div class="col-md-6 col-lg-4">
                     <div class="card h-100 shadow-sm">
-                        <img src="https://images.unsplash.com/photo-1506167428694-1aa9f6c0a9b2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=8b1d6a4f2e1a3a5d6b7c8d9e0f1a2b3c" class="card-img-top" alt="Café Touba cadeau">
+                        <img src="1 kg.jpeg" class="card-img-top product-image" alt="Café Touba 1kg" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-image="1 kg.jpeg" data-title="cafe TUUBA Majalis — 1kg">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">cafe TUUBA Majalis - 1kg</h5>
-                            <p class="card-text text-muted">Café de qualité supérieure, torréfaction artisanale.</p>
+                            <h5 class="card-title">cafe TUUBA Majalis — 1kg</h5>
+                            <p class="card-text text-muted">Format familial, même goût traditionnel — idéal pour les amateurs.</p>
                             <div class="mt-auto d-flex justify-content-between align-items-center">
                                 <strong class="text-brown fs-5">6 000 XOF</strong>
-                                <a class="btn btn-outline-brown" target="_blank" href="https://wa.me/221778401904?text=Bonjour%2C%20je%20souhaite%20commander%20le%20cafe%20TUUBA%20Majalis%20-%201kg%20%286%20000%20XOF%29.%20Merci">Commander </a>
+                                <a class="btn btn-outline-brown" target="_blank" href="https://wa.me/221778401904?text=Bonjour%2C%20je%20souhaite%20commander%20le%20Cafe%C3%A9%20Tuuba%20majalis%20-%20500g%20%283%20000%20XOF%29.%20Merci">Commander </a>
                             </div>
                         </div>
                     </div>
@@ -155,6 +155,21 @@
         </div>
     </footer>
 
+    <!-- Modal Lightbox -->
+    <div class="modal fade" id="lightboxModal" tabindex="-1" aria-labelledby="lightboxLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-dark">
+                <div class="modal-header bg-dark border-secondary">
+                    <h5 class="modal-title text-white" id="lightboxLabel"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center bg-dark">
+                    <img id="lightboxImage" src="" alt="Produit" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
         <script>
             // JS fallback to ensure videos with class .videoframe try to play (some browsers block autoplay unless muted)
@@ -168,6 +183,19 @@
                         }
                     }catch(e){ /* silent */ }
                 });
+            });
+
+            // Lightbox functionality
+            var lightboxModal = document.getElementById('lightboxModal');
+            lightboxModal.addEventListener('show.bs.modal', function (event) {
+                var button = event.relatedTarget;
+                var image = button.getAttribute('data-image');
+                var title = button.getAttribute('data-title');
+                var modalImage = document.getElementById('lightboxImage');
+                var modalTitle = document.getElementById('lightboxLabel');
+                
+                modalImage.src = image;
+                modalTitle.textContent = title;
             });
         </script>
 </body>
